@@ -1,7 +1,12 @@
-from openai import OpenAI
+import os
+
 from dotenv import load_dotenv
+import promptlayer
 
 load_dotenv()
+
+promptlayer.api_key = os.getenv("PROMPTLAYER_API_KEY")
+OpenAI = promptlayer.openai.OpenAI
 client = OpenAI()
 
 messages = [
